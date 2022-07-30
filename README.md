@@ -1,3 +1,7 @@
+## 安装依赖
+```markdown
+npm install
+```
 ## 运行
 ```markdown
 npm start
