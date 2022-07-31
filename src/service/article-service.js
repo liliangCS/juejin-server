@@ -1,5 +1,5 @@
 const { request1 } = require("./index")
-const { articleListUrl, articleListUrl2, articleListUrl3 } = require("./urls")
+const { articleListUrl, articleListUrl2, articleListUrl3, articleColumnUrl, similarArticleUrl, recommendArticleUrl } = require("./urls")
 
 class ArticleService {
   // 根据分类(标签为全部)获取文章列表
@@ -35,6 +35,38 @@ class ArticleService {
       limit: 20,
       sort_type: 200,
       tag_id: tagId
+    })
+    return res.data
+  }
+
+  // 获取文章专栏
+  async getArticleColumnData(articleId) {
+    const res = await request1.post(articleColumnUrl, {
+      article_id: articleId,
+      cursor: "0",
+      limit: 10
+    })
+    return res.data
+  }
+
+  // 获取相关文章接口
+  async getSimilarArticleData(articleId, userId) {
+    const res = await request1.post(similarArticleUrl, {
+      cursor: "0",
+      id_type: 2,
+      item_id: articleId,
+      user_id: userId
+    })
+    return res.data
+  }
+
+  // 获取相关推荐接口
+  async getRecommendArticleData(articleId, pageIndex) {
+    const res = await request1.post(recommendArticleUrl, {
+      cursor: `${pageIndex * 20}`,
+      id_type: 2,
+      item_id: articleId,
+      sort_type: 200
     })
     return res.data
   }
