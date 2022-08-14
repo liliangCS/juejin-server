@@ -6,8 +6,10 @@ exports.articleListUrl = "/recommend_api/v1/article/recommend_cate_feed?aid=2608
 exports.articleListUrl2 = "/recommend_api/v1/article/recommend_all_feed?aid=2608&uuid=7007808088838669835"
 // 文章列表（根据分类 + 标签）
 exports.articleListUrl3 = "/recommend_api/v1/article/recommend_cate_tag_feed?aid=2608&uuid=7007808088838669835"
-// 文章评论
+// 文章评论(全部)
 exports.commentsUrl = "/interact_api/v1/comment/list?aid=2608&uuid=7007808088838669835"
+// 文章评论（热门）
+exports.hotCommentsUrl = "/interact_api/v1/comment/hots?aid=2608&uuid=7007808088838669835"
 // 作者榜
 exports.authorRankUrl = "/user_api/v1/author/recommend?aid=2608&uuid=7007808088838669835&cursor=0&limit=20"
 // 分类下的标签
