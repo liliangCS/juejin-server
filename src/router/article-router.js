@@ -1,5 +1,5 @@
 const Router = require("koa-router")
-const { getArticleList, getComArticleList, getTagArticleList, getArticleColumn, getSimilarArticle, getRecommendArticle } = require("../controller/article-controller")
+const { getArticleList, getComArticleList, getTagArticleList, getArticleColumn, getSimilarArticle, getRecommendArticle, getDetailArticle } = require("../controller/article-controller")
 
 const router = new Router({ prefix: "/api/article" })
 
@@ -15,5 +15,7 @@ router.post("/column", getArticleColumn)
 router.post("/similar", getSimilarArticle)
 // 获取相关推荐
 router.post("/recommend", getRecommendArticle)
+// 获取文章详情
+router.get("/:articleId", getDetailArticle)
 
 module.exports = router

@@ -1,4 +1,4 @@
-const { request1 } = require("./index")
+const { request1, request2 } = require("./index")
 const { articleListUrl, articleListUrl2, articleListUrl3, articleColumnUrl, similarArticleUrl, recommendArticleUrl } = require("./urls")
 
 class ArticleService {
@@ -68,6 +68,12 @@ class ArticleService {
       item_id: articleId,
       sort_type: 200
     })
+    return res.data
+  }
+
+  // 获取文章详情
+  async getDetailArticleData(articleId) {
+    const res = await request2.get(`/post/${articleId}`)
     return res.data
   }
 }

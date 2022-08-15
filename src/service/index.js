@@ -18,6 +18,8 @@ class Request {
 }
 
 const request1 = new Request("https://api.juejin.cn")
+const request2 = new Request("https://juejin.cn")
 module.exports = {
-  request1
+  request1,
+  request2
 }

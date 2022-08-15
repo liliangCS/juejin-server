@@ -1,4 +1,11 @@
-const { getArticleListData, getComArticleListData, getTagArticleListData, getArticleColumnData, getSimilarArticleData, getRecommendArticleData } = require("../service/article-service")
+const {
+  getArticleListData,
+  getComArticleListData,
+  getTagArticleListData,
+  getArticleColumnData,
+  getSimilarArticleData,
+  getRecommendArticleData,
+  getDetailArticleData } = require("../service/article-service")
 
 class ArticleController {
   // 根据分类(标签为全部)获取文章列表
@@ -34,6 +41,14 @@ class ArticleController {
   async getRecommendArticle(ctx, next) {
     const { articleId, pageIndex } = ctx.request.body
     ctx.body = await getRecommendArticleData(articleId, pageIndex)
+  }
+
+  // 获取文章详情
+  async getDetailArticle(ctx, next) {
+    const { articleId } = ctx.request.params
+    const res = await getDetailArticleData(articleId)
+    const reg = /(?<=mark_content:).*?(?=,display_count)/g
+    ctx.body = { markdown: res.match(reg)[0] }
   }
 }
 
