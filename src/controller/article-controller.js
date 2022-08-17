@@ -7,6 +7,10 @@ const {
   getRecommendArticleData,
   getDetailArticleData } = require("../service/article-service")
 
+// const md = require('markdown-it')({
+//   breaks: true
+// })
+
 class ArticleController {
   // 根据分类(标签为全部)获取文章列表
  async getArticleList(ctx, next) {
