@@ -15,6 +15,6 @@ const lvArr = [
 
 router.get("/:level", (ctx, next) => {
   const { level } = ctx.request.params
-  ctx.body = { imgUrl: `https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-${lvArr[level]}.png` }
+  ctx.body = { err_no: 0, imgUrl: `https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-${lvArr[level]}.png` }
 })
 module.exports = router
