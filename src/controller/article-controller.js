@@ -52,7 +52,11 @@ class ArticleController {
     const { articleId } = ctx.request.params
     const res = await getDetailArticleData(articleId)
     const reg = /(?<=mark_content:).*?(?=,display_count)/g
-    ctx.body = { markdown: res.match(reg)[0] }
+    ctx.body = { 
+      markdown: res.match(reg)[0].slice(1, -1),
+      err_no: 0,
+      err_msg: "success"
+    }
   }
 }
 

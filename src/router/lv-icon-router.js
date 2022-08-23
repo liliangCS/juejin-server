@@ -22,21 +22,23 @@ const lvArr2 = [
   "cf19b122213ebdbd25b66f02500b8c27",
   "70f1e5e3a2fde62e0d623009ab80cb12"
 ]
-
+// 创作等级接口
 router.get("/:level", (ctx, next) => {
   const { level } = ctx.request.params
   const imgUrl = level == 0 ? "" : `https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-${lvArr1[level]}.png`
   ctx.body = {
     err_no: 0,
+    err_msg: "success",
     imgUrl
   }
 })
-
+// 掘友等级接口
 router.get("/jc/:level", (ctx, next) => {
   const { level } = ctx.request.params
   const imgUrl = level == 0 ? "" : `https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/${lvArr2[level]}.svg`
   ctx.body = {
     err_no: 0,
+    err_msg: "success",
     imgUrl
   }
 })
